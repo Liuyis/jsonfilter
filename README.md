@@ -1,5 +1,5 @@
 # jsonfilter
-A json field filter bases on fastjson and springboot
+A POJO property filter for Resful JSON output bases on fastjson and springbootnd springboot.
 
 ## Dependencies
 ```
