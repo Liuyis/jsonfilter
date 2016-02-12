@@ -23,7 +23,7 @@ if you are using springboot with **@EnableAutoConfiguration** and **@ComponentSc
 if you are using springboot that configs and scans components by yourself, you should add **"com.liuyis.jsonfilter"** to your config path and component path.
 ## example
 
-customize a POJO json output
+**customize a POJO json output**
 ```Java
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     //use annotation to customize your json output *_*
@@ -36,7 +36,7 @@ customize a POJO json output
 ```
 you will get response like that : {"id": 1, "name": "liuyis"}
 
-customize two POJO json output
+**customize two POJO json output**
 ```Java
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     //use annotation to customize your json output *_*
@@ -53,7 +53,7 @@ customize two POJO json output
 ```
 you will get response like that:{"home":"myhomeAddress","school":"myschoolAddress","user":{"id":1,"name":"liuyi","password": "19942333333"}}
 
-customize mutiple POJO json output
+**customize mutiple POJO json output**
 ```Java
     @RequestMapping(value = "/", method = RequestMethod.POST)
     //use @MoreSerializeField annotation to customize mutiple POJO json output *_*
