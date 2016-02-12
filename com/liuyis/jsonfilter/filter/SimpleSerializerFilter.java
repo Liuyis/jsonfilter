@@ -30,7 +30,7 @@ public class SimpleSerializerFilter extends SimplePropertyPreFilter{
                 }
             }
         }
-        else if(!isEmpty(excludes)){
+        if(!isEmpty(excludes)){
             for (Map.Entry<Class, HashSet<String>> exclude :excludes.entrySet()){
                 Class objClass = exclude.getKey();
                 Set<String> includeProp = exclude.getValue();
@@ -40,8 +40,6 @@ public class SimpleSerializerFilter extends SimplePropertyPreFilter{
                     continue;
                 }
             }
-        }else {
-            return true;
         }
         return true;
     }
