@@ -45,7 +45,7 @@ customize two POJO json output
     @SerializeField(clazz = Address.class, includes = {"school", "home","user"})
     //use @MultiSerializeField annotation to customize the second POJO json output *_*
     //clazz -- the POJO class that you want to customize
-    //excludes -- the properties in POJO that you do not want to show json output
+    //excludes -- the properties in POJO that you do not want to show in json output
     @MultiSerializeField(clazz = User.class, excludes = {"addresses"})
     public Address getAddressById(@PathVariable Long id){
         return addressService.findAddressById(id);
