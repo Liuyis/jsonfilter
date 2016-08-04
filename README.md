@@ -15,7 +15,7 @@ A POJO property filter for Resful JSON output bases on fastjson and springboot.
   </dependency>
 ```
 ## Install
-add **jsonfilter-1.0.1.jar** to your project's dependencies
+add **jsonfilter-1.0.2.jar** to your project's dependencies
 
 if you are using springboot with **@EnableAutoConfiguration** and **@ComponentScan** , you can just use it without any configuration
 !
