@@ -3,11 +3,11 @@ A simple POJO property filter for Resful JSON output bases on fastjson and sprin
 
 ## Dependencies
 ```
-        <parent>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-parent</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
             <version>1.5.9.RELEASE</version>
-        </parent>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
