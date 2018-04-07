@@ -16,13 +16,13 @@ public @interface MultiSerializeField{
     Class clazz() ;
 
     /**
-     * 需要返回的字段
+     * The field will be returned
      * @return
      */
     String[] includes() default {};
 
     /**
-     * 需要去除的字段
+     * The field will not be returned
      * @return
      */
     String[] excludes() default {};

@@ -1,56 +1,45 @@
-# jsonfilter
-A simple POJO property filter for Resful JSON output bases on fastjson and springboot.
+package com.liuyis.demo;
 
-## Dependencies
-```
-        <parent>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-parent</artifactId>
-            <version>1.5.9.RELEASE</version>
-        </parent>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.46</version>
-        </dependency>
-```
-## Install
-Add **jsonfilter-1.0.3.jar** to your project's dependencies. You can do like that in maven project:
-```
-        <dependency>
-            <groupId>com.liuyis</groupId>
-            <artifactId>jsonfilter</artifactId>
-            <version>1.0.3</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/jsonfilter-1.0.3.jar</systemPath>
-        </dependency>
-```
+import com.liuyis.demo.bean.Address;
+import com.liuyis.demo.bean.User;
+import com.liuyis.jsonfilter.annotation.MoreSerializeField;
+import com.liuyis.jsonfilter.annotation.MultiSerializeField;
+import com.liuyis.jsonfilter.annotation.SerializeField;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-If you are using springboot with **@EnableAutoConfiguration** and **@ComponentScan** , you should add it to your componentScan path!
-```Java
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by liuyis on 2018/4/7.
+ */
+@RestController
+@EnableAutoConfiguration
 @ComponentScan({"com.liuyis.jsonfilter"})
-```
+public class Demo {
 
-Then, just enjoy it!
 
-## Example
-
-**customize a POJO json output**
-```Java
     @GetMapping("/user")
     //use annotation to customize your json output *_*
     //clazz -- the POJO class that you want to customize
     //includes -- the properties in POJO that you want to save
-    @SerializeField(clazz = User.class,includes = {"name","id"})
+    @SerializeField(clazz = User.class,includes = {"name", "id"})
     public User user() {
         User user = new User(1L, "liuyis", "123456");
+        List<Address> addresses = new ArrayList<>();
+        Address a1 = new Address("liuyis's home", "liuyis's school", user);
+        Address a2 = new Address("liuyis's home2", "liuyis's school2", user);
+        addresses.add(a1);
+        addresses.add(a2);
+        user.setAddresses(addresses);
+
         return user;
     }
-```
-you will get response like that : {"id":1,"name":"liuyis"}
 
-**customize two POJO json output**
-```Java
     @GetMapping("/user2")
     //use annotation to customize your json output *_*
     //clazz -- the POJO class that you want to customize
@@ -71,11 +60,7 @@ you will get response like that : {"id":1,"name":"liuyis"}
 
         return user;
     }
-```
-you will get response like that: {"addresses":[{"home":"liuyis's home","school":"liuyis's school"},{"home":"liuyis's home2","school":"liuyis's school2"}],"id":1,"name":"liuyis"}
 
-
-```Java
     @GetMapping("/address")
     //use annotation to customize your json output *_*
     //clazz -- the POJO class that you want to customize
@@ -84,7 +69,7 @@ you will get response like that: {"addresses":[{"home":"liuyis's home","school":
     //use @MultiSerializeField annotation to customize the second POJO json output *_*
     //clazz -- the POJO class that you want to customize
     //excludes -- the properties in POJO that you do not want to show in json output
-    @MultiSerializeField(clazz = User.class, excludes = {"addresses"})
+    @MultiSerializeField(clazz = User.class, excludes = {"addresses", "password"})
     public Address address(){
         User user = new User(1L, "liuyis", "123456");
         List<Address> addresses = new ArrayList<>();
@@ -96,11 +81,7 @@ you will get response like that: {"addresses":[{"home":"liuyis's home","school":
 
         return a1;
     }
-```
-you will get response like that:{"home":"liuyis's home","school":"liuyis's school","user":{"id":1,"name":"liuyis"}}
 
-**customize mutiple POJO json output**
-```Java
     @GetMapping("/address2")
     //use @MoreSerializeField annotation to customize mutiple POJO json output *_*
     //add @SerializeField annotation as many as you want :)
@@ -118,9 +99,8 @@ you will get response like that:{"home":"liuyis's home","school":"liuyis's schoo
 
         return a1;
     }
-```
-you will get response like that:{"home":"liuyis's home","school":"liuyis's school","user":{"id":1,"name":"liuyis"}}
 
-
-
-
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Demo.class, args);
+    }
+}

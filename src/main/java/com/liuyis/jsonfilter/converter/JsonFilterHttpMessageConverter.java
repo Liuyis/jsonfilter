@@ -14,6 +14,8 @@ import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
+import static com.alibaba.fastjson.util.IOUtils.UTF8;
+
 /**
  * Created by Liuyis on 2016/2/11.
  */
