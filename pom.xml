@@ -6,7 +6,7 @@
 
     <groupId>com.liuyis</groupId>
     <artifactId>jsonfilter</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <packaging>jar</packaging>
 
     <properties>

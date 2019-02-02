@@ -15,23 +15,18 @@ A simple POJO property filter for Resful JSON output bases on fastjson and sprin
         </dependency>
 ```
 ## Install
-Add **jsonfilter-1.0.3.jar** to your project's dependencies. You can do like that in maven project:
+Add **jsonfilter-1.0.4.jar** to your project's dependencies. You can do like that in maven project:
 ```
         <dependency>
             <groupId>com.liuyis</groupId>
             <artifactId>jsonfilter</artifactId>
-            <version>1.0.3</version>
+            <version>1.0.4</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/jsonfilter-1.0.3.jar</systemPath>
+            <systemPath>${project.basedir}/libs/jsonfilter-1.0.4.jar</systemPath>
         </dependency>
 ```
 
-If you are using springboot with **@EnableAutoConfiguration** and **@ComponentScan** , you should add it to your componentScan path!
-```Java
-@ComponentScan({"com.liuyis.jsonfilter"})
-```
-
-Then, just enjoy it!
+Then, just enjoy it !
 
 ## Example
 

@@ -7,6 +7,7 @@ import com.liuyis.jsonfilter.annotation.MultiSerializeField;
 import com.liuyis.jsonfilter.annotation.SerializeField;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,8 +19,7 @@ import java.util.List;
  * Created by liuyis on 2018/4/7.
  */
 @RestController
-@EnableAutoConfiguration
-@ComponentScan({"com.liuyis.jsonfilter"})
+@SpringBootApplication
 public class Demo {
 
 
